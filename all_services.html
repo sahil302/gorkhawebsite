@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GorkhaSewa.com</title>
+  <script src="./script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <style>
+    .feature-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: .75rem;
+  }
+  .notification {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      color: white;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+
+    .notification.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    .notification.available {
+      background-color: #4CAF50; /* Green background */
+    }
+
+    .notification.not-available {
+      background-color: #f44336; /* Red background */
+    }
+
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top"style="background-color: #d9d9d9 !important;" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html" style="font-family: 'Roboto', sans-serif;"><img src="./pngwing.com.png" height="40px" alt="khukuri image">Gorkha Sewa</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./barber.html">Book for barber</a></li>
+              <li><a class="dropdown-item" href="./cook.html">Book for Cook</a></li>
+              <li><a class="dropdown-item" href="./cab.html">Book for Cab</a></li>
+              <li><a class="dropdown-item" href="./form3.html">Book for Electtician</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="./all_services.html">All Services</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search" onsubmit="checkPincode(event)">
+          <input class="form-control me-2" id="pincodeInput" type="search" placeholder="pincode" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Check for Services</button>
+        </form>
+        <div id="notification" class="notification">
+      </div>
+    </div>
+  </nav>
+<section class="bg-light py-3 py-md-5 py-xl-8" style="position: relative; top: 2cm;">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+        <h2 class="mb-4 display-5 text-center">Our Services:</h2>
+        <p class="text-secondary mb-5 text-center lead fs-4">While these are the core services we provide at the moment, we are continuously working on expanding our offerings to serve you better. Stay tuned for more services coming soon!</p>
+        <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="container-fluid">
+          <div class="row gy-3 gy-md-4">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./catering-buffet-svgrepo-com.svg " width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="cook image">
+                  <h4 class="mb-4">Cooks & Catering Services</h4>
+                  <p class="mb-4 text-secondary">Enjoy a hassle-free meal with our professional cooks and catering services. Perfect for any event. Order now and savor the experience!</p>
+                  <a href="./form2.html" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./taxicar/96ek_gr9t_210528.jpg " width="200" height="108" class="bi bi-diamond-half text-primary mb-4" alt="taxi image">
+                  <h4 class="mb-4">Professional drivers & cab services</h4>
+                  <p class="mb-4 text-secondary">Safe, reliable rides with professional drivers. Perfect for any journey. Book now!</p>
+                  <a href="./form.html" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./Hair-Dresser-Heart-SVG-21-768x666.jpg.webp " width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="barber image">
+                  <h4 class="mb-4">Hair Dresssing</h4>
+                  <p class="mb-4 text-secondary">Expert stylists for a flawless look. Perfect for any occasion. Book now!
+                  </p>
+                  <a href="./form1.html" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./beauty.png " width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="beauty image">
+                  <h4 class="mb-4">Beauty & Health</h4>
+                  <p class="mb-4 text-secondary">Professional beauty and health services for you. Perfect for any need. Book now!</p>
+                  <a href="#!" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./hand-drawn-electrician-cartoon-illustration/10074657.jpg " width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="electrician image">
+                  <h4 class="mb-4">Certified Electrician</h4>
+                  <p class="mb-4 text-secondary">Skilled electricians for all your needs. Safe and efficient. Book now!</p>
+                  <a href="./form3.html" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./painter.png" width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="painter image">
+                  <h4 class="mb-4">Painters </h4>
+                  <p class="mb-4 text-secondary">Expert painters for a flawless finish. Perfect for any project. Book now!</p>
+                  <a href="#!" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./hand-drawn-construction-worker-cartoon-illustration/9584950.jpg " width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="plumber image">
+                  <h4 class="mb-4">Plumbers & Fitters</h4>
+                  <p class="mb-4 text-secondary">Skilled plumbers and fitters for every task. Reliable and efficient. Book now!.</p>
+                  <a href="#!" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./tourist.jpg " width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="guide image">
+                  <h4 class="mb-4">Tourist Guides</h4>
+                  <p class="mb-4 text-secondary">Knowledgeable guides for an unforgettable journey. Discover hidden gems. Book now!</p>
+                  <a href="#!" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./bakery-store-svgrepo-com.svg " width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="bakery image">
+                  <h4 class="mb-4">Bakers</h4>
+                  <p class="mb-4 text-secondary">Freshly baked goods made to order. Perfect for any occasion. Book now!</p>
+                  <a href="#!" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./icons8-tutor-90.png " width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="tutor svg image">
+                  <h4 class="mb-4">Tutors</h4>
+                  <p class="mb-4 text-secondary">Expert tutors for personalized learning. Perfect for any subject. Book now!</p>
+                  <a href="#!" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./under.jpg" width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="Under Construction">
+                  <h4 class="mb-4">Comming Soon !!</h4>
+                  <p class="mb-4 text-secondary"></p>
+                  <a href="#!" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./rafting.png" width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="Under Construction">
+                  <h4 class="mb-4">Book for Rafting !!</h4>
+                  <p class="mb-4 text-secondary">Experience thrilling rapids and stunning scenery. Perfect for adventure seekers. Book now.</p>
+                  <a href="#!" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!--<div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-dark">
+                <div class="card-body text-center p-4 p-xxl-5">
+                  <img src="./under.jpg" width="108" height="108" class="bi bi-diamond-half text-primary mb-4" alt="Under Construction">
+                  <h4 class="mb-4">Comming Soon !!</h4>
+                  <p class="mb-4 text-secondary"></p>
+                  <a href="#!" class="btn btn-outline-primary bsb-btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+<div class="container">
+<footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
+    </ul>
+    <p class="text-center text-body-secondary">© GorkhaSewa,2024</p>
+  </footer>
+</div>

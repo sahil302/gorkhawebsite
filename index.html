@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GorkhaSewa</title>
+  <script src="./script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <style>
+    .feature-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: .75rem;
+} 
+@media(max-width:768px)
+{
+.slideText {
+    display: block;
+    width: 400px;
+    height: 50px;
+    background: #F8F9FA;
+    color:black;
+    overflow: hidden;
+    }
+    .slidingtext {
+      padding: 4px;
+      visibility: visible;
+      animation-name:slide;
+      animation-duration: 20s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+  @media(min-width:768px)
+{
+.slideText {
+    display: block;
+    width: 1500px;
+    height: 50px;
+    background: #F8F9FA;
+    color:black;
+    overflow: hidden;
+    }
+    .slidingtext {
+      padding: 4px;
+      visibility: visible;
+      animation-name:slide;
+      animation-duration: 20s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+    @keyframes slide {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+    }
+    .notification {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      color: white;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+
+    .notification.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    .notification.available {
+      background-color: #4CAF50; /* Green background */
+    }
+
+    .notification.not-available {
+      background-color: #f44336; /* Red background */
+    }
+
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }
+     #preloader{
+      
+  background: #000 url(./preloader.gif) no-repeat center;
+  background-size: 15%;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 99999; /* Very high z-index */
+  top: 0;
+  left: 0;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="preloader"></div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top"style="background-color: #d9d9d9 !important;" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html" style="font-family: 'Roboto', sans-serif;""><img src="./pngwing.com.png" height="40px" alt="khukuri image">Gorkha Sewa</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./form1.html">Book for barber</a></li>
+              <li><a class="dropdown-item" href="./form2.html">Book for Cook</a></li>
+              <li><a class="dropdown-item" href="./form.html">Book for Cab</a></li>
+              <li><a class="dropdown-item" href="./form3.html">Book for Electrician</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="./all_services.html">All Services</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search" onsubmit="checkPincode(event)">
+          <input class="form-control me-2" id="pincodeInput" type="search" placeholder="pincode" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Check for Services</button>
+        </form>
+        <div id="notification" class="notification">
+      </div>
+    </div>
+  </nav>
+  <div class="px-4 py-5 my-5 mb-1 text-center">
+    <img class="d-block mx-auto mb-4" src="./Picsart_24-08-10_16-33-57-313.png"   alt="" width="100" height="100">
+    <h1 class="display-5 fw-bold text-body-emphasis">Welcome to Gorkha Ghar Sewa
+
+    </h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">Your One-Stop Solution for All Home Services
+
+        Get instant access to a wide range of home services at your doorstep with Gorkha Ghar Sewa. From barber services to car rentals, home cleaning to errand services, we've got you covered.
+        
+        </p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+       <a href="./all_services.html"><button type="button" class="btn btn-primary btn-lg px-4 gap-3">Browse Services</button></a>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Join Us</button>
+      </div>
+    </div>
+  </div>
+  <div class="slideText">
+    <div class="slidingtext">Welcome to Gorkha Ghar Sewa! 🌟 Your one-stop service hub. Enjoy our professional care and quality service! 🏠✨           For support, call us at 📞 8373832405 </div>
+  </div>
+  <div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">Our Promise To You :</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <img src="./experience-expert-icon.png" height="40px" alt="experienced">
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Experienced and Skilled Professionals</h3>
+        <p> we pride ourselves on our team of highly skilled and experienced professionals. With a minimum of 5 years of experience in their respective fields, our experts deliver top-notch services with precision and care. From seasoned barbers to meticulous cleaners, and reliable drivers to efficient errand runners, our team is dedicated to providing exceptional service and ensuring your complete satisfaction.
+        </p>
+        
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <img src="./affordable-icon.png" height="40px" alt="affordable-icon">
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Affordable Services Without Compromising on Quality
+        </h3>
+        <p>we believe that quality service shouldn't break the bank. That's why we offer a range of services at budget-friendly prices without sacrificing excellence. From home cleaning to barber services, and car rentals to errand running, our goal is to provide transparent pricing and unbeatable value. Get the best services at prices that fit your budget.
+
+        </p>
+        
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <img src="./—Pngtree—technical support_3767452.png" height="40px" alt="techincal support emoji">
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Need Help? We're Always Here!
+        </h3>
+        <p>we understand that your needs don't stop after hours. That's why we offer 24/7 support to ensure you receive assistance whenever you need it. Whether you have a question, concern, or need to book a service in the middle of the night, our dedicated team is always available to help. Experience the peace of mind that comes with knowing you're always supported.
+        </p>
+        
+      </div>
+    </div>
+  </div>
+  <div class="container">
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./images (1).jpeg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="./taxi-driver.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="./deepclean.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  </div>
+  
+   <script>var loader=document.getElementById("preloader");
+    window.addEventListener("load",function(){
+      loader.style.display="none";
+    })
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+<footer>
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </footer>
+  </div>
+</footer>
+
+</html>

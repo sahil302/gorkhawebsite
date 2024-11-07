@@ -1,0 +1,141 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GorkhaSewa.com</title>
+    <script src="./script.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <style>.notification {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      color: white;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+    }
+
+    .notification.show {
+      visibility: visible;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    .notification.available {
+      background-color: #4CAF50; /* Green background */
+    }
+
+    .notification.not-available {
+      background-color: #f44336; /* Red background */
+    }
+
+    @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+    }</style>
+</head>
+<body>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top"style="background-color: #d9d9d9 !important;" >
+          <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html" style="font-family: 'Roboto', sans-serif;"><img src="./pngwing.com.png" height="40px" alt="khukuri image">Gorkha Sewa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="./about.html">About us</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Services
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./form1.html">Book for barber</a></li>
+                    <li><a class="dropdown-item" href="./form2.html">Book for Cook</a></li>
+                    <li><a class="dropdown-item" href="./form.html">Book for Cab</a></li>
+                    <li><a class="dropdown-item" href="./form3.html">Book for Electrician</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="./all_services.html">All Services</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="d-flex" role="search" onsubmit="checkPincode(event)">
+                <input class="form-control me-2" id="pincodeInput" type="search" placeholder="pincode" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Check for Services</button>
+              </form>
+              <div id="notification" class="notification">
+            </div>
+          </div>
+        </nav>
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+              <div class="col-10 col-sm-8 col-lg-6">
+                <img src="./map.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="900" loading="lazy">
+              </div>
+              <div class="col-lg-6">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Welcome to Gorkha Ghar Sewa
+                </h1>
+                <p class="lead">At Gorkha Ghar Sewa, we're dedicated to making your life easier by delivering top-notch home services right to your doorstep. Our mission is simple: to save you time and effort by providing a one-stop solution for all your household needs.
+
+                    Our Story
+                    
+                    Founded in 2024 by Mr. Sahil Chettri, with the visionary guidance of Mr. Rohan Chettri, Gorkha Ghar Sewa is based in the heart of Kalimpong, Darjeeling. Our goal is to revolutionize the way you manage your daily tasks by offering a wide range of services under one roof.
+                    
+                    Our Services
+                    
+                    From car rentals to barber services, household cleaning to cooking, we've got you covered. Our team of professionals is trained to provide exceptional service, so you can relax and enjoy your free time.
+                    
+                    Our Vision
+                    
+                    We're committed to expanding our services beyond Kalimpong, with plans to reach other states soon. Our vision is to become the go-to home service provider, trusted by families and individuals across the region.
+                    
+                    </p>
+                
+              </div>
+            </div>
+          </div>
+          <div class="d-flex gap-2 justify-content-center py-5">
+            <h1>Contact Us</h1>
+            <button type="button" class="btn btn-success">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+<path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+</svg>
+              Whatsapp Us
+            </button>
+            <button type="button" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"></path>
+</svg>
+              Email Us
+            </button>
+          </div>
+          <div class="container">
+            <footer class="py-3 my-4">
+              <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="./index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="./about.html" class="nav-link px-2 text-body-secondary">About</a></li>
+              </ul>
+              <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+            </footer>
+          </div>
+          
+          
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
